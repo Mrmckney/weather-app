@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IonIcon } from '@ionic/react'; 
+import { IonIcon, IonItem, IonSpinner } from '@ionic/react'; 
 import { sunnyOutline } from 'ionicons/icons';
 import { WeatherData } from "../interfaces/interfaces";
 import "../styles/Weather.css"
@@ -37,11 +37,13 @@ const Weather = () => {
     }
 
     return (
-        <div className="weather-container">
+        <div className="weather-container" style={{}}>
             <div className="box1">
                 {loading ? 
                     <div className="loading-box">
-                      <h1>Loading...</h1> 
+                        <IonItem>
+                            <IonSpinner name="circular"></IonSpinner>
+                        </IonItem>
                     </div>
                 : 
                     <div>

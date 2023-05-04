@@ -13,21 +13,23 @@
     "@ionic/react": "^7.0.5",
     "@ionic/react-router": "^7.0.5",
     "@types/ionic": "^3.19.0",
+    "@types/jest": "^29.5.1",
     "dotenv": "^16.0.3",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^18.16.3",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
+    "@types/react": "^18.2.2",
+    "@types/react-dom": "^18.2.3",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react": "^4.0.0",
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
-    "typescript": "^5.0.2",
+    "typescript": "^5.0.4",
     "vite": "^4.3.2"
   }
 }
