@@ -1,0 +1,9 @@
+.box1 {
+    height: 350px;
+    background-color: rgba(121, 209, 246, 1);
+    margin-left: 20em;
+    margin-right: 20em;
+    border-radius: 25px;
+    font-family: 'Julius Sans One';
+    color: white;
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { WeatherData } from "../interfaces/interfaces";
+import "../styles/Weather.css"
 
 const tempData: WeatherData[] = [{
     "coord": {
@@ -82,7 +83,9 @@ const Weather = () => {
 
     return (
         <div className="weather-container">
-            <div>
+            <div className="box1">
+              <p className="location">{data.name.toLocaleUpperCase()}</p>
+
             </div>
         </div>
     )
