@@ -1,11 +1,16 @@
+.weather-container {
+    display: flex;
+    justify-content: center;
+}
+
 .box1 {
     height: 350px;
+    width: 800px;
     background-color: rgba(121, 209, 246, 1);
-    margin-left: 20em;
-    margin-right: 20em;
     border-radius: 25px;
     font-family: 'Julius Sans One';
     color: white;
+    margin: 0;
 }
 
 .loading-box {
