@@ -7,3 +7,10 @@
     font-family: 'Julius Sans One';
     color: white;
 }
+
+.loading-box {
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

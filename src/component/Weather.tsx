@@ -56,8 +56,10 @@ const Weather = () => {
 
     const [coords, setCoords] = useState<GeolocationCoordinates>({} as GeolocationCoordinates)
     const [data, setData] = useState<WeatherData>({} as WeatherData)
+    const [loading, setLoading] = useState<boolean>(false)
 
     useEffect(() => {
+        setLoading(true)
         grabLocation()
     }, [])
 
@@ -65,6 +67,7 @@ const Weather = () => {
         if (coords.latitude && coords.longitude) {
             fetchWeatherData().then((weatherData) => {
                 setData(weatherData)
+                setLoading(false)
             });
         }
     }, [coords])
@@ -84,8 +87,13 @@ const Weather = () => {
     return (
         <div className="weather-container">
             <div className="box1">
-              <p className="location">{data.name.toLocaleUpperCase()}</p>
-
+                {loading ? 
+                    <div className="loading-box">
+                        <h1>Loading...</h1> 
+                    </div>
+                : 
+                    <p className="location">{data?.name?.toLocaleUpperCase()}</p>
+                }
             </div>
         </div>
     )
