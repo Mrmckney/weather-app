@@ -2,4 +2,22 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: Julius Sans One;
+}
+
+.sub-title {
+  font-weight: 400;
+  font-size: 48px;
+  color: #1A2486;
+  text-align: center;
+  margin-bottom: 10px;
+  text-shadow: 4px 6px 10px #000000;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 96px;
+  color: #1A2486;
+  text-align: center;
+  margin-top: 0;
 }

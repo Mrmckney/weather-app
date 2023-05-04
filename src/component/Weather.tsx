@@ -82,11 +82,7 @@ const Weather = () => {
 
     return (
         <div className="weather-container">
-            <h1>Today's Forecast</h1>
             <div>
-                {tempData.map((item, i) => (
-                    <h1 key={i}>{item.base}</h1>
-                ))}
             </div>
         </div>
     )
