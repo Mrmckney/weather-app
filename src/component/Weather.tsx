@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun } from '@fortawesome/free-solid-svg-icons'
 import Switch from '@mui/material/Switch';
 import { WeatherData } from "../interfaces/interfaces";
 import { WeatherProps } from "../interfaces/propTypes";
@@ -58,6 +60,7 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
                       </div>
                       <div className="all-elements-up">
                         <div id="icon-description">
+                            <FontAwesomeIcon icon={faSun} size="10x" />
                           <p>sunny</p>
                         </div>
                         <div>
