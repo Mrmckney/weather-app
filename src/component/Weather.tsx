@@ -56,7 +56,7 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
                         </div>
                         </div>
                         <div className="all-elements-down">
-                          <p className="description">{data.weather[0].description}</p>
+                          <p className="description">{data.weather ? data.weather[0].description : ""}</p>
                         <div className="max">
                           <p>max-temp</p>
                           <p>{data?.main?.temp_max?.toFixed(0)}F°</p>
@@ -67,11 +67,11 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
                         </div>
                         <div className="rise">
                           <p>sunrise</p>
-                          <p>{data.sys.sunrise}</p>
+                          <p>{data?.sys?.sunrise}</p>
                         </div>
                         <div className="set">
                           <p>sunset</p>
-                          <p>{data.sys.sunset}</p>
+                          <p>{data?.sys?.sunset}</p>
                         </div>
                         <div>
                           <p>live time</p>
