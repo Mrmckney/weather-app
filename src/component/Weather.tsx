@@ -52,8 +52,10 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
                     </div>
                 : 
                     <div>
-                      <Switch  onClick={() => setToggle(!toggle)}/>
-                      <p className="location">{data?.name}</p>
+                      <div className="up-elements">
+                        <p className="toggle-switch">°F<Switch  onClick={() => setToggle(!toggle)}/>°C</p>
+                        <p className="location">{data?.name}</p>
+                      </div>
                       <div className="all-elements-up">
                         <div id="icon-description">
                           <p>sunny</p>
@@ -74,26 +76,22 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
                         </div>
                         <div className="all-elements-down">
                           <p className="description">{data.weather ? data.weather[0].description : ""}</p>
+                          <div className="min">  
+                          <p>min-temp</p>
+                          <p>{toggleFC(data?.main?.temp_min)}</p>
+                        </div>
                         <div className="max">
                           <p>max-temp</p>
                           <p>{toggleFC(data?.main?.temp_max)}</p>
                         </div>
-                        <div className="min">  
-                          <p>min-temp</p>
-                          <p>{toggleFC(data?.main?.temp_min)}</p>
-                        </div>
-                        <div className="rise">
-                          <p>sunrise</p>
-                          <p>{convertToHours(data?.sys?.sunrise)}</p>
-                        </div>
-                        <div className="set">
-                          <p>sunset</p>
-                          <p>{convertToHours(data?.sys?.sunset)}</p>
-                        </div>
                         <div>
                           <p>live time</p>
                           <p>{convertToHours()}</p>
-                        </div>
+                          <p>sunrise</p>
+                          <p>{convertToHours(data?.sys?.sunrise)}</p>
+                          <p>sunset</p>
+                          <p>{convertToHours(data?.sys?.sunset)}</p>
+                          </div>
                         </div>
                     </div>
                 }
