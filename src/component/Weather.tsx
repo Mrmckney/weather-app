@@ -19,7 +19,7 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
     }, [coords])
 
     const fetchWeatherData = async () => {
-        const response: Response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&appid=${import.meta.env.VITE_API_KEY}`) 
+        const response: Response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&units=imperial&appid=${import.meta.env.VITE_API_KEY}`) 
         const data: WeatherData = await response.json()
         return data
     }
