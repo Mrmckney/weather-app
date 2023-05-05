@@ -19,3 +19,52 @@
     justify-content: center;
     align-items: center;
 }
+
+.sunny-icon {
+    font-size: 100px;
+    color: yellow;
+}
+
+.all-elements-up {
+    display: flex;
+}
+
+#icon-description {
+    margin-left: 58px;
+}
+
+.temp {
+    margin-left: 80px;
+    margin-right: 80px;
+    font-size: 50px;
+    margin-top: 0px;
+}
+
+.temp-text {
+    margin-right: 12px;
+}
+
+.feels-like {
+    margin-right: 80px;
+    font-size: 50px;
+    margin-top: 0px;
+}
+
+.feels-like-text {
+    margin-right: 90px;
+}
+
+.all-elements-down {
+    display: flex;
+}
+
+.description {
+    margin-left: 69px;
+    margin-top: 0px;
+
+}
+
+.max {
+    margin-right: 40px;
+    margin-left: 40px;
+}

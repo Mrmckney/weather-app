@@ -35,8 +35,49 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
                     </div>
                 : 
                     <div>
-                      <p className="location">{data?.name?.toLocaleUpperCase()}</p>
-                      <IonIcon icon={sunnyOutline}></IonIcon>
+                      <p className="location">{data?.name}</p>
+                      <div className="all-elements-up">
+                        <div id="icon-description">
+                          <IonIcon className="sunny-icon" icon={sunnyOutline}></IonIcon>
+                          <p>sunny</p>
+                        </div>
+                        <div>
+                          <p className="temp-text">current temp</p>
+                          <p className="temp">{data?.main?.temp?.toFixed(0)}F°</p>
+                        </div>
+                        <div>
+                          <p className="feels-like-text">feels like</p>
+                          <p className="feels-like">{data?.main?.feels_like?.toFixed(0)}F°</p>
+                        </div>
+                        <div className="wind-pre-hum">
+                          <p>WIND: {data?.wind?.speed}mph</p>
+                          <p>PRESSURE: {data?.main?.pressure}mb</p>
+                          <p>HUMIDITY: {data?.main?.humidity}%</p>
+                        </div>
+                        </div>
+                        <div className="all-elements-down">
+                          <p className="description">{data.weather[0].description}</p>
+                        <div className="max">
+                          <p>max-temp</p>
+                          <p>{data?.main?.temp_max?.toFixed(0)}F°</p>
+                        </div>
+                        <div className="min">  
+                          <p>min-temp</p>
+                          <p>{data?.main?.temp_min?.toFixed(0)}F°</p>
+                        </div>
+                        <div className="rise">
+                          <p>sunrise</p>
+                          <p>{data.sys.sunrise}</p>
+                        </div>
+                        <div className="set">
+                          <p>sunset</p>
+                          <p>{data.sys.sunset}</p>
+                        </div>
+                        <div>
+                          <p>live time</p>
+                          <p>clock</p>
+                        </div>
+                        </div>
                     </div>
                 }
             </div>
