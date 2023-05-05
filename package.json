@@ -10,9 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ionic/react": "^7.0.5",
-    "@ionic/react-router": "^7.0.5",
-    "@types/ionic": "^3.19.0",
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@mui/material": "^5.12.3",
     "@types/jest": "^29.5.1",
     "dotenv": "^16.0.3",
     "prop-types": "^15.8.1",

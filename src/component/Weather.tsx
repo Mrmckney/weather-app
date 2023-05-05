@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { IonIcon, IonItem, IonSpinner } from '@ionic/react'; 
-import { sunnyOutline } from 'ionicons/icons';
 import { WeatherData } from "../interfaces/interfaces";
 import { WeatherProps } from "../interfaces/propTypes";
 import "../styles/Weather.css"
@@ -29,16 +27,13 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
             <div className="box1">
                 {weatherLoading ? 
                     <div className="loading-box">
-                        <IonItem>
-                            <IonSpinner name="circular"></IonSpinner>
-                        </IonItem>
+                        <h1>Loading...</h1>
                     </div>
                 : 
                     <div>
                       <p className="location">{data?.name}</p>
                       <div className="all-elements-up">
                         <div id="icon-description">
-                          <IonIcon className="sunny-icon" icon={sunnyOutline}></IonIcon>
                           <p>sunny</p>
                         </div>
                         <div>
