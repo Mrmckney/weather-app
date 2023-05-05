@@ -26,10 +26,21 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
 
     function toggleFC(f: number) {
       if (toggle) {
-        return (( f - 32 ) * 5/9).toFixed(0) + "°C"
+        return (( f - 32 ) * 5/9)?.toFixed(0) + "°C"
       } else {
-        return f.toFixed(0) + "°F"
+        return f?.toFixed(0) + "°F"
       }
+    }
+
+    function convertToHours(time?: number) {
+        if (time) {
+            const date = new Date(time * 1000)
+            return date.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' })
+        } else {
+            const date = new Date()
+            return date.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' })
+        }
+
     }
 
     return (
@@ -73,15 +84,15 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
                         </div>
                         <div className="rise">
                           <p>sunrise</p>
-                          <p>{data?.sys?.sunrise}</p>
+                          <p>{convertToHours(data?.sys?.sunrise)}</p>
                         </div>
                         <div className="set">
                           <p>sunset</p>
-                          <p>{data?.sys?.sunset}</p>
+                          <p>{convertToHours(data?.sys?.sunset)}</p>
                         </div>
                         <div>
                           <p>live time</p>
-                          <p>clock</p>
+                          <p>{convertToHours()}</p>
                         </div>
                         </div>
                     </div>
