@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Switch from '@mui/material/Switch';
 import { WeatherData } from "../interfaces/interfaces";
 import { WeatherProps } from "../interfaces/propTypes";
 import "../styles/Weather.css"
@@ -6,6 +7,7 @@ import "../styles/Weather.css"
 const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX.Element => {
 
     const [data, setData] = useState<WeatherData>({} as WeatherData)
+    const [toggle, setToggle] = useState<boolean>(false)
     
     useEffect(() => {
         if (coords.latitude && coords.longitude) {
@@ -22,6 +24,14 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
         return data
     }
 
+    function toggleFC(f: number) {
+      if (toggle) {
+        return (( f - 32 ) * 5/9).toFixed(0) + "°C"
+      } else {
+        return f.toFixed(0) + "°F"
+      }
+    }
+
     return (
         <div className="weather-container">
             <div className="box1">
@@ -31,6 +41,7 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
                     </div>
                 : 
                     <div>
+                      <Switch  onClick={() => setToggle(!toggle)}/>
                       <p className="location">{data?.name}</p>
                       <div className="all-elements-up">
                         <div id="icon-description">
@@ -38,11 +49,11 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
                         </div>
                         <div>
                           <p className="temp-text">current temp</p>
-                          <p className="temp">{data?.main?.temp?.toFixed(0)}F°</p>
+                          <p className="temp">{toggleFC(data?.main?.temp)}</p>
                         </div>
                         <div>
                           <p className="feels-like-text">feels like</p>
-                          <p className="feels-like">{data?.main?.feels_like?.toFixed(0)}F°</p>
+                          <p className="feels-like">{toggleFC(data?.main?.feels_like)}</p>
                         </div>
                         <div className="wind-pre-hum">
                           <p>WIND: {data?.wind?.speed}mph</p>
@@ -54,11 +65,11 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
                           <p className="description">{data.weather ? data.weather[0].description : ""}</p>
                         <div className="max">
                           <p>max-temp</p>
-                          <p>{data?.main?.temp_max?.toFixed(0)}F°</p>
+                          <p>{toggleFC(data?.main?.temp_max)}</p>
                         </div>
                         <div className="min">  
                           <p>min-temp</p>
-                          <p>{data?.main?.temp_min?.toFixed(0)}F°</p>
+                          <p>{toggleFC(data?.main?.temp_min)}</p>
                         </div>
                         <div className="rise">
                           <p>sunrise</p>
