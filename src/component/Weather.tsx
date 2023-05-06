@@ -64,18 +64,18 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
                       </div>
                       <div className="all-elements-up">
                         <div id="icon-description">
-                            <FontAwesomeIcon icon={faSun} size="10x" />
+                            <FontAwesomeIcon className="sunny-icon" icon={faSun} size="10x" />
                           <p>sunny</p>
                         </div>
-                        <div>
+                        <div className="temp-div">
                           <p className="temp-text">current temp</p>
                           <p className="temp">{toggleFC(data?.main?.temp)}</p>
                         </div>
-                        <div>
+                        <div className="feels-like-div">
                           <p className="feels-like-text">feels like</p>
                           <p className="feels-like">{toggleFC(data?.main?.feels_like)}</p>
                         </div>
-                        <div className="wind-pre-hum">
+                        <div id="wind-pre-hum">
                           <p>WIND: {data?.wind?.speed}mph</p>
                           <p>PRESSURE: {data?.main?.pressure}mb</p>
                           <p>HUMIDITY: {data?.main?.humidity}%</p>
@@ -91,13 +91,10 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
                           <p>max-temp</p>
                           <p>{toggleFC(data?.main?.temp_max)}</p>
                         </div>
-                        <div>
-                          <p>live time</p>
-                          <p>{liveTime}</p>
-                          <p>sunrise</p>
-                          <p>{convertToHours(data?.sys?.sunrise)}</p>
-                          <p>sunset</p>
-                          <p>{convertToHours(data?.sys?.sunset)}</p>
+                        <div className="hours">
+                          <p>live time: {liveTime}</p>
+                          <p>sunrise: {convertToHours(data?.sys?.sunrise)}</p>
+                          <p>sunset: {convertToHours(data?.sys?.sunset)}</p>
                           </div>
                         </div>
                     </div>
