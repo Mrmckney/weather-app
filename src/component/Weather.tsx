@@ -5,11 +5,13 @@ import Switch from '@mui/material/Switch';
 import { WeatherData } from "../interfaces/interfaces";
 import { WeatherProps } from "../interfaces/propTypes";
 import "../styles/Weather.css"
-  
-const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX.Element => {
 
+
+const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX.Element => {
+    
     const [data, setData] = useState<WeatherData>({} as WeatherData)
     const [toggle, setToggle] = useState<boolean>(false)
+    const [liveTime, setLiveTime] = useState<string>('')
     
     useEffect(() => {
         if (coords.latitude && coords.longitude) {
@@ -19,6 +21,14 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
             });
         }
     }, [coords])
+    
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const nowDate = new Date()
+            setLiveTime(nowDate.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' }))
+        }, 1000);
+        return () => clearInterval(interval);
+      }, []);
 
     const fetchWeatherData = async () => {
         const response: Response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&units=imperial&appid=${import.meta.env.VITE_API_KEY}`) 
@@ -34,15 +44,9 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
       }
     }
 
-    function convertToHours(time?: number) {
-        if (time) {
-            const date = new Date(time * 1000)
-            return date.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' })
-        } else {
-            const date = new Date()
-            return date.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' })
-        }
-
+    function convertToHours(time: number) {
+        const date = new Date(time * 1000)
+        return date.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' })
     }
 
     return (
@@ -89,7 +93,7 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
                         </div>
                         <div>
                           <p>live time</p>
-                          <p>{convertToHours()}</p>
+                          <p>{liveTime}</p>
                           <p>sunrise</p>
                           <p>{convertToHours(data?.sys?.sunrise)}</p>
                           <p>sunset</p>
