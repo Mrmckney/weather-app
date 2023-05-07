@@ -1,3 +1,7 @@
+body {
+    font-size: 18px;
+}
+
 .weather-container {
     display: flex;
     justify-content: center;
@@ -20,94 +24,43 @@
     align-items: center;
 }
 
-.sunny-icon {
-    font-size: 150px;
-}
-
-.all-elements-up {
+.wrap-it-all {
     display: flex;
-    margin-top: 20px;
-}
-
-#icon-description {
-    margin-left: 58px;
-}
-
-.temp {
-    margin-left: 95px;
-    margin-right: 80px;
-    font-size: 70px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.temp-text {
-    margin-left: 20px;
-}
-
-.feels-like {
-    margin-right: 100px;
-    margin-left: 50px;
-    font-size: 70px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.feels-like-text {
-    margin-right: 100px;
-    margin-left: 50px;
-}
-
-.all-elements-down {
-    display: flex;
-}
-
-.description {
-    margin-left: 93px;
-    margin-top: 0px;
-
-}
-
-.max {
-    margin-right: 40px;
-    margin-left: 95px;
-    margin-top: 0px;
-    font-size: 20px;
-}
-
-.min {
-    margin-left: 190px;
-    margin-top: 0px;
-    font-size: 20px;
-}
-
-.rise {
-    margin-right: 40px;
-}
-
-.set {
-    margin-right: 40px;
-}
-
-.up-elements {
-    display: flex;
-}
-
-.toggle-switch {
-    margin-left: 50px;
-    margin-top: 30px;
 }
 
 .location {
-    margin-top: 30px;
-    margin-left: 273px;
-    font-size: 20px;
+    font-size: 30px;
 }
 
-#wind-pre-hum {
+.column1 {
+    margin-left: 73px;
+}
+
+.column2 {
+    margin-left: 73px;
+}
+
+.temp {
+    font-size: 70px;
     margin-top: 0px;
+    margin-bottom: 0px;
 }
 
-.hours {
-    margin-left: 120px
+.column3 {
+    margin-left: 73px
 }
+
+.feels-like {
+    font-size: 70px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.column4 {
+    margin-left: 73px
+}
+
+.live-time {
+    margin-top: 47px;
+}
+

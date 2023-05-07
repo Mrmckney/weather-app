@@ -83,47 +83,49 @@ const Weather = ({coords, weatherLoading, setWeatherLoading, toggle, setToggle}:
                         <h1>Loading...</h1>
                     </div>
                 : 
-                    <div>
-                      <div className="up-elements">
-                        <p className="toggle-switch">°F<Switch  onClick={() => setToggle(!toggle)}/>°C</p>
-                        <p className="location">{data?.name}</p>
-                      </div>
-                      <div className="all-elements-up">
-                        <div id="icon-description">
-                            <FontAwesomeIcon className="sunny-icon" icon={changingIcons()} size="10x" />
-                            <p>{data.weather ? data.weather[0].main : ""}</p>
-                        </div>
-                        <div className="temp-div">
-                          <p className="temp-text">current temp</p>
-                          <p className="temp">{toggleFC(data?.main?.temp)}</p>
-                        </div>
-                        <div className="feels-like-div">
-                          <p className="feels-like-text">feels like</p>
-                          <p className="feels-like">{toggleFC(data?.main?.feels_like)}</p>
-                        </div>
-                        <div id="wind-pre-hum">
-                          <p>WIND: {data?.wind?.speed}mph</p>
-                          <p>PRESSURE: {data?.main?.pressure}mb</p>
-                          <p>HUMIDITY: {data?.main?.humidity}%</p>
-                        </div>
-                        </div>
-                        <div className="all-elements-down">
-                          <p className="description">{data.weather ? data.weather[0].description : ""}</p>
-                          <div className="min">  
-                          <p>min-temp</p>
-                          <p>{toggleFC(data?.main?.temp_min)}</p>
-                        </div>
-                        <div className="max">
-                          <p>max-temp</p>
-                          <p>{toggleFC(data?.main?.temp_max)}</p>
-                        </div>
-                        <div className="hours">
-                          <p>live time: {liveTime}</p>
-                          <p>sunrise: {convertToHours(data?.sys?.sunrise)}</p>
-                          <p>sunset: {convertToHours(data?.sys?.sunset)}</p>
-                          </div>
-                        </div>
+                <div>
+                  <p className="toggle-switch">°F<Switch  onClick={() => setToggle(!toggle)}/>°C</p>
+                  <p className="location">{data?.name}</p>
+                  <div className="wrap-it-all">
+                    <div className="column1">
+                      <FontAwesomeIcon className="sunny-icon" icon={faSun} size="10x" />
+                      <p className="description">{data.weather ? data.weather[0].main : ""}</p>
+                      <p className="description">{data.weather ? data.weather[0].description : ""}</p>
                     </div>
+                    <div className="column2">
+                      <div className="temp-div">
+                        <p className="temp-text">current temp</p>
+                        <p className="temp">{toggleFC(data?.main?.temp)}</p>
+                      </div>
+                      <div className="min">  
+                        <p>min-temp</p>
+                        <p>{toggleFC(data?.main?.temp_min)}</p>
+                      </div>
+                    </div>
+                    <div className="column3">
+                      <div className="feels-like-div">
+                        <p className="feels-like-text">feels like</p>
+                        <p className="feels-like">{toggleFC(data?.main?.feels_like)}</p>
+                      </div>
+                      <div className="max">
+                        <p>max-temp</p>
+                        <p>{toggleFC(data?.main?.temp_max)}</p>
+                      </div>
+                    </div>
+                    <div className="column4">
+                      <div id="wind-pre-hum">
+                        <p>WIND: {data?.wind?.speed}mph</p>
+                        <p>PRESSURE: {data?.main?.pressure}mb</p>
+                        <p>HUMIDITY: {data?.main?.humidity}%</p>
+                      </div>
+                      <div className="hours">
+                        <p className="live-time">live time: {liveTime}</p>
+                        <p>sunrise: {convertToHours(data?.sys?.sunrise)}</p>
+                        <p>sunset: {convertToHours(data?.sys?.sunset)}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 }
             </div>
         </div>
