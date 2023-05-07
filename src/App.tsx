@@ -8,10 +8,11 @@ import Forecast from './component/Forecast'
 import SearchBar from './component/SearchBar'
 // import Maps from './component/Maps'
 import { grabLocation } from './services'
+import { Coords } from './services/interfaces';
 
 function App(): JSX.Element {
 
-  const [coords, setCoords] = useState<GeolocationCoordinates>({} as GeolocationCoordinates)
+  const [coords, setCoords] = useState<Coords>({} as Coords)
   const [weatherLoading, setWeatherLoading] = useState<boolean>(false)
   const [forecastLoading, setForecastLoading] = useState<boolean>(false)
   const [toggle, setToggle] = useState<boolean>(false)
