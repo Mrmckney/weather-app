@@ -25,7 +25,7 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
     useEffect(() => {
         const interval = setInterval(() => {
             const nowDate = new Date()
-            setLiveTime(nowDate.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' }))
+            setLiveTime(nowDate.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit', second: '2-digit' }))
         }, 1000);
         return () => clearInterval(interval);
       }, []);
