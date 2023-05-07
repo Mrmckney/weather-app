@@ -10,7 +10,7 @@ const Forecast = ({coords, forecastLoading, setForecastLoading, toggle}: Forecas
     const [forecastData, setForecastData] = useState<ForecastDataSingle[]>([])
 
     useEffect(() => {
-        if (coords.latitude && coords.longitude) {
+        if (coords.lat && coords.long) {
             fetchForecastData(coords).then((forecastData) => {
                 setForecastData([forecastData.list[0], forecastData.list[8], forecastData.list[16], forecastData.list[24], forecastData.list[32]])
                 setForecastLoading(false)

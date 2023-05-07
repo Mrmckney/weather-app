@@ -10,13 +10,23 @@ import {
     faVolcano 
 } from '@fortawesome/free-solid-svg-icons'
 import { SetStateAction } from 'react';
-import { ForecastDataSingle, WeatherData } from './interfaces'
-import { Dispatch } from 'react';
+import { Coords, ForecastDataSingle, WeatherData } from './interfaces'
+import { Dispatch, FormEvent } from 'react';
+import { fetchSearchData } from './fetch-api';
 
-export const grabLocation = (setCoords: Dispatch<SetStateAction<GeolocationCoordinates>>) => {
+export const grabLocation = (setCoords: Dispatch<SetStateAction<Coords>>) => {
     navigator.geolocation.getCurrentPosition(position => {
-        setCoords(position.coords)
+        setCoords({lat: position.coords.latitude, long: position.coords.longitude})
     });
+}
+
+export const handleSearch = (e: FormEvent, word: string, setCoords: Dispatch<SetStateAction<Coords>>) => {
+    e.preventDefault()
+    if (word.trim() !== '') {
+        fetchSearchData(word).then((data) => {
+            setCoords({lat: data[0].lat, long: data[0].lon})
+        })
+    }
 }
 
 export const changingIcons = (data: WeatherData | ForecastDataSingle) => {
@@ -38,7 +48,13 @@ export const changingIcons = (data: WeatherData | ForecastDataSingle) => {
 
 export function convertToHours(time: number) {
     const date = new Date(time * 1000)
-    return date.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' })
+    const hour = date.toString().slice(16, 18)
+    const minutes = date.toString().slice(19, 21)
+    if (hour[0] === "0") {
+        return hour[1] + ":" + minutes
+    } else {
+        return Number(hour) > 12 ? (Number(hour) - 12).toString() + ":" + minutes : hour + ":" + minutes
+    }
 }
 
 export function convertToWeekDay(time: number) {

@@ -31,7 +31,7 @@ function App(): JSX.Element {
         </div>
         :
         <>
-        <SearchBar />
+        <SearchBar setCoords={setCoords} />
         <Weather coords={coords} weatherLoading={weatherLoading} setWeatherLoading={setWeatherLoading} toggle={toggle} setToggle={setToggle} />
         <Forecast coords={coords} forecastLoading={forecastLoading} setForecastLoading={setForecastLoading} toggle={toggle} />
         {/* <Maps coords={coords}/> */}

@@ -15,7 +15,7 @@ const Weather = ({coords, weatherLoading, setWeatherLoading, toggle, setToggle}:
     const [liveTime, setLiveTime] = useState<string>('')
     
     useEffect(() => {
-        if (coords.latitude && coords.longitude) {
+        if (coords.lat && coords.long) {
             fetchWeatherData(coords).then((weatherData) => {
                 setData(weatherData)
                 setWeatherLoading(false)

@@ -1,8 +1,8 @@
 import { SetStateAction, Dispatch } from "react"
-import { ForecastDataSingle } from "./interfaces"
+import { Coords, ForecastDataSingle } from "./interfaces"
 
 export type WeatherProps = {
-    coords: GeolocationCoordinates
+    coords: Coords
     weatherLoading: boolean
     setWeatherLoading: Dispatch<SetStateAction<boolean>>
     toggle: boolean
@@ -10,17 +10,21 @@ export type WeatherProps = {
 }
 
 export type ForecastProps = {
-    coords: GeolocationCoordinates
+    coords: Coords
     forecastLoading: boolean
     setForecastLoading: Dispatch<SetStateAction<boolean>>
     toggle: boolean
 }
 
 export type MapProps = {
-    coords: GeolocationCoordinates
+    coords: Coords
 }
 
 export type ForecastSingleProps = {
     data: ForecastDataSingle
     toggle: boolean
+}
+
+export type SearchProps = {
+    setCoords: Dispatch<SetStateAction<Coords>>
 }

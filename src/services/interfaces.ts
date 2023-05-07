@@ -100,3 +100,10 @@ export interface ForecastData {
         gust: number
     }
 }
+
+
+export interface Coords {
+    lat: number;
+    long: number
+    
+}
