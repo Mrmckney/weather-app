@@ -9,7 +9,15 @@ import {
     faCloudMeatball, 
     faVolcano 
 } from '@fortawesome/free-solid-svg-icons'
+import { SetStateAction } from 'react';
 import { ForecastDataSingle, WeatherData } from './interfaces'
+import { Dispatch } from 'react';
+
+export const grabLocation = (setCoords: Dispatch<SetStateAction<GeolocationCoordinates>>) => {
+    navigator.geolocation.getCurrentPosition(position => {
+        setCoords(position.coords)
+    });
+}
 
 export const changingIcons = (data: WeatherData | ForecastDataSingle) => {
     if (!data.weather) return faSun
