@@ -5,7 +5,7 @@ import { MapProps } from "../services/propTypes";
 const Maps = ({coords}: MapProps): JSX.Element => {
     const [url, setUrl] = useState("")
     useEffect(() => {
-        if (coords.latitude && coords.longitude) {
+        if (coords.lat && coords.long) {
             fetchMapsData(coords).then((mapData) => {
                 console.log(mapData)
             });
