@@ -9,7 +9,7 @@ body {
 
 .box1 {
     height: 450px;
-    width: 1000px;
+    width: 1200px;
     background-color: rgba(121, 209, 246, 1);
     border-radius: 25px;
     font-family: 'Julius Sans One';
@@ -26,18 +26,11 @@ body {
 
 .wrap-it-all {
     display: flex;
+    justify-content: space-evenly;
 }
 
 .location {
     font-size: 30px;
-}
-
-.column1 {
-    margin-left: 73px;
-}
-
-.column2 {
-    margin-left: 73px;
 }
 
 .temp {
@@ -46,18 +39,10 @@ body {
     margin-bottom: 0px;
 }
 
-.column3 {
-    margin-left: 73px
-}
-
 .feels-like {
     font-size: 70px;
     margin-top: 0px;
     margin-bottom: 0px;
-}
-
-.column4 {
-    margin-left: 73px
 }
 
 .live-time {

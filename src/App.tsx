@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import Button from '@mui/material/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudSun, faCloudMoonRain } from '@fortawesome/free-solid-svg-icons';
 import Weather from './component/Weather'
 import './App.css'
 import Forecast from './component/Forecast'
@@ -25,6 +27,10 @@ function App(): JSX.Element {
     <>
       { !getStarted ?
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: "100%", height: "100vh"}}>
+          <div style={{display: "flex"}}>
+            <FontAwesomeIcon style={{color: "yellow", fontSize: "150px", marginRight: "400px", marginTop: "0px"}} icon={faCloudSun} />
+            <FontAwesomeIcon style={{color: "darkblue", fontSize: "150px"}} icon={faCloudMoonRain} />
+          </div>
           <h2 className='sub-title'>Welcome To Our</h2>
           <h1 className='title'>Weather App</h1>
           <Button variant="contained" onClick={() => setGetStarted(true)}>Get Started</Button>
