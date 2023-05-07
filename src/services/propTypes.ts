@@ -16,6 +16,10 @@ export type ForecastProps = {
     toggle: boolean
 }
 
+export type MapProps = {
+    coords: GeolocationCoordinates
+}
+
 export type ForecastSingleProps = {
     data: ForecastDataSingle
     toggle: boolean

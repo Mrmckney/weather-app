@@ -11,3 +11,12 @@ export const fetchForecastData = async (coords: GeolocationCoordinates) => {
     const data: ForecastData = await response.json()
     return data
 }
+
+export const fetchMapsData = async (coords: GeolocationCoordinates) => {
+    const response: Response = await fetch(`https://tile.openweathermap.org/map/clouds_new/10/10/10.png?appid=${import.meta.env.VITE_API_KEY}`) 
+    const data = response.json()
+    console.log(data)
+    return data
+}
+
+
