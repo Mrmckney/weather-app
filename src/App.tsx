@@ -5,6 +5,7 @@ import './App.css'
 import Forecast from './component/Forecast'
 import SearchBar from './component/SearchBar'
 // import Maps from './component/Maps'
+import { grabLocation } from './services'
 
 function App(): JSX.Element {
 
@@ -17,14 +18,8 @@ function App(): JSX.Element {
   useEffect(() => {
     setWeatherLoading(true)
     setForecastLoading(true)
-    grabLocation()
+    grabLocation(setCoords)
   }, [])
-
-  const grabLocation = () => {
-    navigator.geolocation.getCurrentPosition(position => {
-        setCoords(position.coords)
-    });
-  }
 
   return (
     <>
