@@ -1,16 +1,25 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSun } from '@fortawesome/free-solid-svg-icons'
+import { 
+    faSun, 
+    faCloudBolt,
+    faCloud, 
+    faCloudRain, 
+    faCloudShowersHeavy, 
+    faSnowflake, faSmog, 
+    faTornado, 
+    faCloudMeatball, 
+    faVolcano 
+} from '@fortawesome/free-solid-svg-icons'
 import Switch from '@mui/material/Switch';
 import { WeatherData } from "../interfaces/interfaces";
 import { WeatherProps } from "../interfaces/propTypes";
 import "../styles/Weather.css"
 
 
-const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX.Element => {
-    
+
+const Weather = ({coords, weatherLoading, setWeatherLoading, toggle, setToggle}: WeatherProps): JSX.Element => {
     const [data, setData] = useState<WeatherData>({} as WeatherData)
-    const [toggle, setToggle] = useState<boolean>(false)
     const [liveTime, setLiveTime] = useState<string>('')
     
     useEffect(() => {
@@ -29,6 +38,23 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
         }, 1000);
         return () => clearInterval(interval);
       }, []);
+
+    const changingIcons = () => {
+        if (!data.weather) return faSun
+        const weatherName = data.weather[0].main
+        switch (weatherName) {
+            case "Thunderstorm": return faCloudBolt
+            case "Drizzle": return faCloudRain
+            case "Rain": return faCloudShowersHeavy
+            case "Snow": return faSnowflake
+            case "Clear": return faSun
+            case "Clouds": return faCloud
+            case "Ash": return faVolcano
+            case "Squall": return faCloudMeatball
+            case "Tornado": return faTornado
+            default: return faSmog
+        }
+    }
 
     const fetchWeatherData = async () => {
         const response: Response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&units=imperial&appid=${import.meta.env.VITE_API_KEY}`) 
@@ -64,8 +90,8 @@ const Weather = ({coords, weatherLoading, setWeatherLoading}: WeatherProps): JSX
                       </div>
                       <div className="all-elements-up">
                         <div id="icon-description">
-                            <FontAwesomeIcon className="sunny-icon" icon={faSun} size="10x" />
-                          <p>sunny</p>
+                            <FontAwesomeIcon className="sunny-icon" icon={changingIcons()} size="10x" />
+                            <p>{data.weather ? data.weather[0].main : ""}</p>
                         </div>
                         <div className="temp-div">
                           <p className="temp-text">current temp</p>
