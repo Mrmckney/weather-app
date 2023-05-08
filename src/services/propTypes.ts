@@ -20,6 +20,10 @@ export type MapProps = {
     coords: Coords
 }
 
+export type MusicProps = {
+    coords: Coords
+}
+
 export type ForecastSingleProps = {
     data: ForecastDataSingle
     toggle: boolean

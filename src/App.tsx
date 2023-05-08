@@ -9,6 +9,7 @@ import SearchBar from './component/SearchBar'
 // import Maps from './component/Maps'
 import { grabLocation } from './services'
 import { Coords } from './services/interfaces';
+import Music from './component/Music';
 
 function App(): JSX.Element {
 
@@ -41,6 +42,7 @@ function App(): JSX.Element {
         <SearchBar setCoords={setCoords} />
         <Weather coords={coords} weatherLoading={weatherLoading} setWeatherLoading={setWeatherLoading} toggle={toggle} setToggle={setToggle} />
         <Forecast coords={coords} forecastLoading={forecastLoading} setForecastLoading={setForecastLoading} toggle={toggle} />
+        <Music />
         {/* <Maps coords={coords}/> */}
         </>
       }
