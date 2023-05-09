@@ -1,7 +1,9 @@
 import { SetStateAction, Dispatch } from "react"
-import { Coords, ForecastDataSingle } from "./interfaces"
+import { Coords, ForecastData, ForecastDataSingle, WeatherData } from "./interfaces"
 
 export type WeatherProps = {
+    data: WeatherData
+    setData: Dispatch<SetStateAction<WeatherData>>
     coords: Coords
     weatherLoading: boolean
     setWeatherLoading: Dispatch<SetStateAction<boolean>>
@@ -10,6 +12,9 @@ export type WeatherProps = {
 }
 
 export type ForecastProps = {
+    data: WeatherData
+    forecastData: ForecastDataSingle[]
+    setForecastData: Dispatch<SetStateAction<ForecastDataSingle[]>>
     coords: Coords
     forecastLoading: boolean
     setForecastLoading: Dispatch<SetStateAction<boolean>>
@@ -25,8 +30,9 @@ export type MusicProps = {
 }
 
 export type ForecastSingleProps = {
-    data: ForecastDataSingle
+    dataSingle: ForecastDataSingle
     toggle: boolean
+    data: WeatherData
 }
 
 export type SearchProps = {

@@ -3,15 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Switch from '@mui/material/Switch';
 import { WeatherData } from "../services/interfaces";
 import { WeatherProps } from "../services/propTypes";
-import { changingIcons, convertToHours, toggleFC } from "../services";
+import { changingIcons, convertToHours, toggleFC, convertToWeekDay } from "../services";
 import { fetchWeatherData } from "../services/fetch-api";
 import "../styles/Weather.css"
 
 
 
-const Weather = ({coords, weatherLoading, setWeatherLoading, toggle, setToggle}: WeatherProps): JSX.Element => {
+const Weather = ({data, setData, coords, weatherLoading, setWeatherLoading, toggle, setToggle}: WeatherProps): JSX.Element => {
 
-    const [data, setData] = useState<WeatherData>({} as WeatherData)
     const [liveTime, setLiveTime] = useState<string>('')
     
     useEffect(() => {
@@ -42,6 +41,7 @@ const Weather = ({coords, weatherLoading, setWeatherLoading, toggle, setToggle}:
                 <div>
                   <p className="toggle-switch">°F<Switch  onClick={() => setToggle(!toggle)}/>°C</p>
                   <p className="location">{data?.name}</p>
+                  <p>{convertToWeekDay()}</p>
                   <div className="wrap-it-all">
                     <div className="column1">
                       <FontAwesomeIcon className="sunny-icon" icon={changingIcons(data)} size="10x" />

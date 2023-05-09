@@ -5,9 +5,7 @@ import { fetchForecastData } from "../services/fetch-api"
 import SmallForecast from "./SmallForecast"
 
 
-const Forecast = ({coords, forecastLoading, setForecastLoading, toggle}: ForecastProps): JSX.Element => {
-
-    const [forecastData, setForecastData] = useState<ForecastDataSingle[]>([])
+const Forecast = ({data, forecastData, setForecastData, coords, forecastLoading, setForecastLoading, toggle}: ForecastProps): JSX.Element => {
 
     useEffect(() => {
         if (coords.lat && coords.long) {
@@ -22,8 +20,8 @@ const Forecast = ({coords, forecastLoading, setForecastLoading, toggle}: Forecas
         <div>
             <h1>ForeCast</h1>
             <div style={{display: "flex", justifyContent: "space-evenly"}}>
-                {forecastData?.map((data: ForecastDataSingle, i) => 
-                    <SmallForecast key={i} data={data} toggle={toggle}/>
+                {forecastData?.map((dataSingle: ForecastDataSingle, i) => 
+                    <SmallForecast key={i} dataSingle={dataSingle} toggle={toggle} data={data} />
                 )}
             </div>
         </div>

@@ -56,9 +56,14 @@ export function convertToHours(time: number) {
     }
 }
 
-export function convertToWeekDay(time: number) {
-    const date = new Date(time * 1000)
-    return date.toString().slice(0, 3)
+export function convertToWeekDay(time?: string | number) {
+    if (time) {
+        const date = new Date(time)
+        return date.toString().slice(0, 3)
+    } else {
+        const currentDate = new Date()
+        return currentDate.toLocaleDateString('en-us', {weekday: 'long'})
+    }
 }
 
 export function toggleFC(f: number, toggle: boolean) {
