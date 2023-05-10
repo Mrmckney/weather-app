@@ -57,7 +57,7 @@ function App(): JSX.Element {
         </div>
         :
         <>
-        <SearchBar setCoords={setCoords} />
+        <SearchBar setCoords={setCoords} darkMode={darkMode} setDarkMode={setDarkMode}/>
         <Weather data={data} setData={setData} coords={coords} weatherLoading={weatherLoading} setWeatherLoading={setWeatherLoading} toggle={toggle} setToggle={setToggle} darkMode={darkMode} setDarkMode={setDarkMode}/>
         <Forecast data={data} forecastData={forecastData} setForecastData={setForecastData} coords={coords} forecastLoading={forecastLoading} setForecastLoading={setForecastLoading} toggle={toggle} darkMode={darkMode}/>
         {/* <Music /> */}

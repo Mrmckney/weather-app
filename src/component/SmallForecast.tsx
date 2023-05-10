@@ -54,7 +54,7 @@ const SmallForecast = ({dataSingle, toggle, data, darkMode}: ForecastSingleProps
     }, [toggle])
 
     return (
-        <div>
+        <div style={ darkMode ? {color: "white"} : {color: "black"}}>
             {open &&
             <div>
                 <Modal
@@ -79,9 +79,9 @@ const SmallForecast = ({dataSingle, toggle, data, darkMode}: ForecastSingleProps
                 <FontAwesomeIcon icon={changingIcons(dataSingle)} size="7x" />
                 <p>{dataSingle.weather[0].main}</p>
                 <span style={{marginRight: 5}}>MIN: {toggleFC(dataSingle.main.temp_min, toggle)}</span>
-                <span style={difference.minDif[0] === "ꜛ" ? {color: "green", marginRight: 10} : {color: "red", marginRight: 10}}>{difference.minDif}</span>
+                <span style={difference.minDif[0] === "ꜛ" ? {color: darkMode ? "#29E5FF" : "green", marginRight: 10} : {color: darkMode ? "#FFF019" : "red", marginRight: 10}}>{difference.minDif}</span>
                 <span style={{marginRight: 5}}>MAX: {toggleFC(dataSingle.main.temp_max, toggle)}</span>
-                <span style={difference.maxDif[0] === "ꜛ"  ? {color: "green", marginRight: 10} : {color: "red", marginRight: 10}}>{difference.maxDif}</span>
+                <span style={difference.maxDif[0] === "ꜛ"  ? {color: darkMode ? "#29E5FF" : "green", marginRight: 10} : {color: darkMode ? "#FFF019" : "red", marginRight: 10}}>{difference.maxDif}</span>
             </div>
         </div>
     )

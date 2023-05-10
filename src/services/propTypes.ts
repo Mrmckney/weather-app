@@ -42,4 +42,6 @@ export type ForecastSingleProps = {
 
 export type SearchProps = {
     setCoords: Dispatch<SetStateAction<Coords>>
+    darkMode: boolean
+    setDarkMode: Dispatch<SetStateAction<boolean>>
 }

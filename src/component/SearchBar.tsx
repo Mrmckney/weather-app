@@ -1,11 +1,13 @@
 import { TextField, Autocomplete } from "@mui/material"
 import { FormEvent, useEffect, useState } from "react"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudSun, faCloudMoonRain } from '@fortawesome/free-solid-svg-icons';
 import { SearchProps } from "../services/propTypes"
 import { handleSearch } from "../services"
 import { fetchSearchData } from "../services/fetch-api"
 
 
-const SearchBar = ({setCoords}: SearchProps): JSX.Element => {
+const SearchBar = ({setCoords, darkMode, setDarkMode}: SearchProps): JSX.Element => {
 
     const [word, setWord] = useState<string>("")
     const [tempData, setTempData] = useState([])
@@ -31,6 +33,7 @@ const SearchBar = ({setCoords}: SearchProps): JSX.Element => {
     
     return (
         <div style={{display: "flex", justifyContent: "center", marginBottom: "50px"}}>
+            <FontAwesomeIcon onClick={() => setDarkMode(false)} style={{color: "yellow", fontSize: "30px", marginRight: "20px", marginTop: "0px"}} icon={faCloudSun} />
             <form style={{width: '500px'}}>
                     <Autocomplete 
                         options={tempData}
@@ -55,6 +58,7 @@ const SearchBar = ({setCoords}: SearchProps): JSX.Element => {
                         renderOption={renderOptions}
                     />
             </form>
+            <FontAwesomeIcon onClick={() => setDarkMode(true)} style={{color: "darkblue", fontSize: "30px", marginLeft: "20px"}} icon={faCloudMoonRain} />
         </div>
     )
 }
