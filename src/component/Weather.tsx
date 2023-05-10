@@ -9,7 +9,7 @@ import "../styles/Weather.css"
 
 
 
-const Weather = ({data, setData, coords, weatherLoading, setWeatherLoading, toggle, setToggle}: WeatherProps): JSX.Element => {
+const Weather = ({data, setData, coords, weatherLoading, setWeatherLoading, toggle, setToggle, darkMode}: WeatherProps): JSX.Element => {
 
     const [liveTime, setLiveTime] = useState<string>('')
     
@@ -32,7 +32,7 @@ const Weather = ({data, setData, coords, weatherLoading, setWeatherLoading, togg
 
     return (
         <div className="weather-container">
-            <div className="box1">
+            <div style={ darkMode ? {backgroundColor: "#0076BF"} : {backgroundColor: "rgba(121, 209, 246, 1)"}} className="box1">
                 {weatherLoading ? 
                     <div className="loading-box">
                         <h1>Loading...</h1>

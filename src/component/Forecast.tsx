@@ -5,7 +5,7 @@ import { fetchForecastData } from "../services/fetch-api"
 import SmallForecast from "./SmallForecast"
 
 
-const Forecast = ({data, forecastData, setForecastData, coords, forecastLoading, setForecastLoading, toggle}: ForecastProps): JSX.Element => {
+const Forecast = ({data, forecastData, setForecastData, coords, forecastLoading, setForecastLoading, toggle, darkMode}: ForecastProps): JSX.Element => {
 
     useEffect(() => {
         if (coords.lat && coords.long) {
@@ -15,13 +15,12 @@ const Forecast = ({data, forecastData, setForecastData, coords, forecastLoading,
             })
         }
     }, [coords])
-
     return (
         <div>
-            <h1>ForeCast</h1>
+            <h1 style={darkMode ? {color: "white"} : {color: "black"}}>ForeCast</h1>
             <div style={{display: "flex", justifyContent: "space-evenly"}}>
                 {forecastData?.map((dataSingle: ForecastDataSingle, i) => 
-                    <SmallForecast key={i} dataSingle={dataSingle} toggle={toggle} data={data} />
+                    <SmallForecast key={i} dataSingle={dataSingle} toggle={toggle} data={data} darkMode={darkMode}/>
                 )}
             </div>
         </div>

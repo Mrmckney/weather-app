@@ -21,7 +21,7 @@ const style = {
     p: 4,
   };
 
-const SmallForecast = ({dataSingle, toggle, data}: ForecastSingleProps): JSX.Element => {
+const SmallForecast = ({dataSingle, toggle, data, darkMode}: ForecastSingleProps): JSX.Element => {
 
     const [difference, setDifference] = useState<{maxDif: string, minDif: string}>({maxDif: "", minDif: ""})
     const [open, setOpen] = useState(false);
