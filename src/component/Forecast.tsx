@@ -5,7 +5,7 @@ import { fetchForecastData } from "../services/fetch-api"
 import SmallForecast from "./SmallForecast"
 
 
-const Forecast = ({coords, forecastLoading, setForecastLoading, toggle}: ForecastProps): JSX.Element => {
+const Forecast = ({coords, forecastLoading, setForecastLoading, toggle, darkMode}: ForecastProps): JSX.Element => {
 
     const [forecastData, setForecastData] = useState<ForecastDataSingle[]>([])
 
@@ -17,13 +17,12 @@ const Forecast = ({coords, forecastLoading, setForecastLoading, toggle}: Forecas
             })
         }
     }, [coords])
-
     return (
         <div>
-            <h1>ForeCast</h1>
+            <h1 style={darkMode ? {color: "white"} : {color: "black"}}>ForeCast</h1>
             <div style={{display: "flex", justifyContent: "space-evenly"}}>
                 {forecastData?.map((data: ForecastDataSingle, i) => 
-                    <SmallForecast key={i} data={data} toggle={toggle}/>
+                    <SmallForecast key={i} data={data} toggle={toggle} darkMode={darkMode}/>
                 )}
             </div>
         </div>

@@ -7,6 +7,8 @@ export type WeatherProps = {
     setWeatherLoading: Dispatch<SetStateAction<boolean>>
     toggle: boolean
     setToggle: Dispatch<SetStateAction<boolean>>
+    darkMode: boolean
+    setDarkMode: Dispatch<SetStateAction<boolean>>
 }
 
 export type ForecastProps = {
@@ -14,7 +16,9 @@ export type ForecastProps = {
     forecastLoading: boolean
     setForecastLoading: Dispatch<SetStateAction<boolean>>
     toggle: boolean
+    darkMode: boolean
 }
+
 
 export type MapProps = {
     coords: Coords
@@ -27,6 +31,7 @@ export type MusicProps = {
 export type ForecastSingleProps = {
     data: ForecastDataSingle
     toggle: boolean
+    darkMode: boolean
 }
 
 export type SearchProps = {

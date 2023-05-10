@@ -2,10 +2,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { changingIcons, convertToWeekDay, toggleFC } from '../services'
 import { ForecastSingleProps } from "../services/propTypes"
 
-const SmallForecast = ({data, toggle}: ForecastSingleProps): JSX.Element => {
+const SmallForecast = ({data, toggle, darkMode}: ForecastSingleProps): JSX.Element => {
 
     return (
-        <div>
+        <div style={ darkMode ? {color: "white"} : {color: "black"}}>
             <h1>{convertToWeekDay(data.dt)}</h1>
             <FontAwesomeIcon icon={changingIcons(data)} size="7x" />
             <p>{data.weather[0].main}</p>

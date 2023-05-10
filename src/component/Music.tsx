@@ -20,7 +20,6 @@ const Music = ({coords}: MusicProps) : JSX.Element  => {
     }, [coords])
 
     function attachSong() {
-
         switch (data.weather[0].main) {
             case 'Thunderstorm':
                 setSong("https://www.youtube.com/watch?v=v2AC41dglnM");
@@ -46,7 +45,7 @@ const Music = ({coords}: MusicProps) : JSX.Element  => {
             case "Dust": 
                 setSong("https://www.youtube.com/watch?v=rY0WxgSXdEE");
                 break;
-          }
+        }
     }
 
     return (
