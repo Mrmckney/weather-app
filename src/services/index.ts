@@ -72,4 +72,12 @@ export function toggleFC(f: number, toggle: boolean) {
     } else {
       return f?.toFixed(0) + "°F"
     }
-  }
+}
+
+export function toggleFCNumber(f: number, toggle: boolean) {
+    if (toggle) {
+      return +(( f - 32 ) * 5/9)?.toFixed(0)
+    } else {
+      return +f?.toFixed(0)
+    }
+}
