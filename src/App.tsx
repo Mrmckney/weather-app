@@ -8,12 +8,14 @@ import Forecast from './component/Forecast'
 import SearchBar from './component/SearchBar'
 // import Maps from './component/Maps'
 import { grabLocation } from './services'
-import { Coords } from './services/interfaces';
+import { Coords, ForecastDataSingle, WeatherData } from './services/interfaces';
 import Music from './component/Music';
 import { string } from 'yargs';
 
 function App(): JSX.Element {
 
+  const [data, setData] = useState<WeatherData>({} as WeatherData)
+  const [forecastData, setForecastData] = useState<ForecastDataSingle[]>([])
   const [coords, setCoords] = useState<Coords>({} as Coords)
   const [weatherLoading, setWeatherLoading] = useState<boolean>(false)
   const [forecastLoading, setForecastLoading] = useState<boolean>(false)
@@ -56,9 +58,9 @@ function App(): JSX.Element {
         :
         <>
         <SearchBar setCoords={setCoords} />
-        <Weather coords={coords} weatherLoading={weatherLoading} setWeatherLoading={setWeatherLoading} toggle={toggle} setToggle={setToggle} darkMode={darkMode} setDarkMode={setDarkMode}/>
-        <Forecast coords={coords} forecastLoading={forecastLoading} setForecastLoading={setForecastLoading} toggle={toggle} darkMode={darkMode} />
-        {/* <Music coords={coords}/> */}
+        <Weather data={data} setData={setData} coords={coords} weatherLoading={weatherLoading} setWeatherLoading={setWeatherLoading} toggle={toggle} setToggle={setToggle} darkMode={darkMode} setDarkMode={setDarkMode}/>
+        <Forecast data={data} forecastData={forecastData} setForecastData={setForecastData} coords={coords} forecastLoading={forecastLoading} setForecastLoading={setForecastLoading} toggle={toggle} darkMode={darkMode}/>
+        {/* <Music /> */}
         {/* <Maps coords={coords}/> */}
         </>
       }
