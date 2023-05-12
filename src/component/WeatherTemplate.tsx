@@ -14,7 +14,7 @@ const WeatherTemplate = ({data, toggle, setToggle, darkMode}: WeatherTemplatePro
         <div className="weather-box">
             <div style={ darkMode ? {backgroundColor: "#0076BF", color: "black"} : {backgroundColor: "rgba(121, 209, 246, 1)", color: "white"}} className="box1">
               <p className="toggle">°F<Switch checked={toggle} onClick={() => setToggle(!toggle)}/>°C</p>
-              <p>{convertToWeekDay()}</p>
+              <p>{convertToWeekDay(data.dt_txt, true)}</p>
               <div className="wrap-it-all">
                 <div className="column-a">
                   <div className="temp-div">

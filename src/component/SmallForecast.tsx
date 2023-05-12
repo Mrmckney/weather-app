@@ -6,22 +6,24 @@ import { changingIcons, convertToWeekDay, toggleFC, toggleFCNumber } from '../se
 import { ForecastSingleProps } from "../services/propTypes"
 import WeatherTemplate from './WeatherTemplate';
 
-const style = {
-    position: 'absolute' as 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 1000,
-    height: 500,
-    bgcolor: 'background.paper',
-    border: "0px",
-    borderRadius: '25px',
-    boxShadow: 24,
-    p: 4,
-    backgroundColor: "rgba(121, 209, 246, 1)",
-  };
-
 const SmallForecast = ({dataSingle, toggle, setToggle , data, darkMode}: ForecastSingleProps): JSX.Element => {
+
+    const style = {
+        position: 'absolute' as 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 1000,
+        height: 500,
+        bgcolor: 'background.paper',
+        border: "10px",
+        borderStyle: 'solid',
+        borderColor:  darkMode ? "black" : "white",
+        borderRadius: '25px',
+        boxShadow: 24,
+        p: 4,
+        backgroundColor: "rgba(121, 209, 246, 1)",
+      };
 
     const [difference, setDifference] = useState<{maxDif: string, minDif: string}>({maxDif: "", minDif: ""})
     const [open, setOpen] = useState(false);

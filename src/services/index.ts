@@ -14,6 +14,16 @@ import { Coords, ForecastDataSingle, WeatherData } from './interfaces'
 import { Dispatch, FormEvent } from 'react';
 import { fetchSearchData } from './fetch-api';
 
+let dayMap: any = {
+    "Mon": "Monday",
+    "Tue": "Tuesday",
+    "Wed": "Wednesday",
+    "Thu": "Thursday",
+    "Fri": "Friday",
+    "Sat": "Saturday",
+    "Sun": "Sunday"
+}
+
 export const grabLocation = (setCoords: Dispatch<SetStateAction<Coords>>) => {
     navigator.geolocation.getCurrentPosition(position => {
         setCoords({lat: position.coords.latitude, long: position.coords.longitude})
@@ -56,10 +66,13 @@ export function convertToHours(time: number) {
     }
 }
 
-export function convertToWeekDay(time?: string | number) {
+export function convertToWeekDay(time?: string | number, length?: boolean) {
     if (time) {
-        const date = new Date(time)
-        return date.toString().slice(0, 3)
+        const date = new Date(time).toString().slice(0, 3)
+        if (time && length) {
+            return dayMap[date]
+        }
+        return date
     } else {
         const currentDate = new Date()
         return currentDate.toLocaleDateString('en-us', {weekday: 'long'})
