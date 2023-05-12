@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { ForecastDataSingle } from "../services/interfaces"
 import { ForecastProps } from "../services/propTypes"
 import { fetchForecastData } from "../services/fetch-api"
 import SmallForecast from "./SmallForecast"
+import "../styles/Weather.css"
 
 
 const Forecast = ({data, forecastData, setForecastData, coords, forecastLoading, setForecastLoading, toggle, setToggle ,darkMode}: ForecastProps): JSX.Element => {
@@ -18,11 +19,17 @@ const Forecast = ({data, forecastData, setForecastData, coords, forecastLoading,
     return (
         <div>
             <h1 style={darkMode ? {color: "white"} : {color: "black"}}>ForeCast</h1>
-            <div style={{display: "flex", justifyContent: "space-evenly"}}>
-                {forecastData?.map((dataSingle: ForecastDataSingle, i) => 
-                    <SmallForecast key={i} dataSingle={dataSingle} toggle={toggle} setToggle={setToggle} data={data} darkMode={darkMode}/>
-                )}
-            </div>
+            { forecastLoading ? 
+                <div className="loading-box">
+                    <h1>Loading...</h1>
+                </div>
+            :
+                <div style={{display: "flex", justifyContent: "space-evenly"}}>
+                    {forecastData?.map((dataSingle: ForecastDataSingle, i) => 
+                        <SmallForecast key={i} dataSingle={dataSingle} toggle={toggle} setToggle={setToggle} data={data} darkMode={darkMode}/>
+                    )}
+                </div>
+            }
         </div>
     )
 }

@@ -17,5 +17,3 @@ export const fetchSearchData = async (word: string) => {
     const data = response.json()
     return data
 }
-
-

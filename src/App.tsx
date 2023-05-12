@@ -9,8 +9,7 @@ import SearchBar from './component/SearchBar'
 // import Maps from './component/Maps'
 import { grabLocation } from './services'
 import { Coords, ForecastDataSingle, WeatherData } from './services/interfaces';
-import Music from './component/Music';
-import { string } from 'yargs';
+// import Music from './component/Music';
 
 function App(): JSX.Element {
 

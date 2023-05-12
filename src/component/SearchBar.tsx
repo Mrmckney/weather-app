@@ -1,5 +1,5 @@
 import { TextField, Autocomplete } from "@mui/material"
-import { FormEvent, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudSun, faCloudMoonRain } from '@fortawesome/free-solid-svg-icons';
 import { SearchProps } from "../services/propTypes"
@@ -7,7 +7,7 @@ import { handleSearch } from "../services"
 import { fetchSearchData } from "../services/fetch-api"
 
 
-const SearchBar = ({setCoords, darkMode, setDarkMode}: SearchProps): JSX.Element => {
+const SearchBar = ({setCoords, setDarkMode}: SearchProps): JSX.Element => {
 
     const [word, setWord] = useState<string>("")
     const [tempData, setTempData] = useState([])
