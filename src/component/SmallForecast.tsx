@@ -11,13 +11,14 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 1200,
-    height: 550,
+    width: 1000,
+    height: 500,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
+    border: "0px",
     borderRadius: '25px',
     boxShadow: 24,
     p: 4,
+    backgroundColor: "rgba(121, 209, 246, 1)",
   };
 
 const SmallForecast = ({dataSingle, toggle, setToggle , data, darkMode}: ForecastSingleProps): JSX.Element => {
@@ -62,7 +63,7 @@ const SmallForecast = ({dataSingle, toggle, setToggle , data, darkMode}: Forecas
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box sx={style}>
+                    <Box sx={style} style={ darkMode ? {backgroundColor: "#0076BF"} : {backgroundColor: "rgba(121, 209, 246, 1)"}}>
                         <WeatherTemplate data={dataSingle} toggle={toggle} setToggle={setToggle} darkMode={darkMode}/>
                     </Box>
                 </Modal>

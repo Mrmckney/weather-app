@@ -36,9 +36,9 @@ const Weather = ({data, setData, coords, weatherLoading, setWeatherLoading, togg
                     <div className="loading-box">
                         <h1>Loading...</h1>
                     </div>
-                : 
-                <div>
-                  <p className="toggle-switch">°F<Switch checked={toggle} onClick={() => setToggle(!toggle)}/>°C</p>
+                  : 
+                <div style={ darkMode ? {color: "black"} : {color: "white"} }>
+                  <p className="toggle-switch">°F<Switch  onClick={() => setToggle(!toggle)}/>°C</p>
                   <p className="location">{data?.name}</p>
                   <p>{convertToWeekDay()}</p>
                   <div className="wrap-it-all">
