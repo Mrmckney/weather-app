@@ -5,25 +5,9 @@ import Modal from '@mui/material/Modal';
 import { changingIcons, convertToWeekDay, toggleFC, toggleFCNumber } from '../services'
 import { ForecastSingleProps } from "../services/propTypes"
 import WeatherTemplate from './WeatherTemplate';
+import '../styles/weather-template.css'
 
 const SmallForecast = ({dataSingle, toggle, setToggle , data, darkMode}: ForecastSingleProps): JSX.Element => {
-
-    const style = {
-        position: 'absolute' as 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 1000,
-        height: 500,
-        bgcolor: 'background.paper',
-        border: "10px",
-        borderStyle: 'solid',
-        borderColor:  darkMode ? "black" : "white",
-        borderRadius: '25px',
-        boxShadow: 24,
-        p: 4,
-        backgroundColor: "rgba(121, 209, 246, 1)",
-      };
 
     const [difference, setDifference] = useState<{maxDif: string, minDif: string}>({maxDif: "", minDif: ""})
     const [open, setOpen] = useState(false);
@@ -64,9 +48,10 @@ const SmallForecast = ({dataSingle, toggle, setToggle , data, darkMode}: Forecas
                     onClose={handleClose}
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
+                    style={{overflow: 'auto'}}
                 >
-                    <Box sx={style} style={ darkMode ? {backgroundColor: "#0076BF"} : {backgroundColor: "rgba(121, 209, 246, 1)"}}>
-                        <WeatherTemplate data={dataSingle} toggle={toggle} setToggle={setToggle} darkMode={darkMode}/>
+                    <Box>
+                        <WeatherTemplate data={dataSingle} toggle={toggle} setToggle={setToggle} darkMode={darkMode} setOpen={setOpen}/>
                     </Box>
                 </Modal>
             </div>

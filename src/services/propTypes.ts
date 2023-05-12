@@ -53,4 +53,5 @@ export type WeatherTemplateProps = {
     toggle: boolean
     setToggle: Dispatch<SetStateAction<boolean>>
     darkMode: boolean
+    setOpen: Dispatch<SetStateAction<boolean>>
 }

@@ -1,18 +1,24 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { 
+  faX
+} from '@fortawesome/free-solid-svg-icons'
 import Switch from '@mui/material/Switch';
 import { WeatherTemplateProps } from "../services/propTypes";
 import { changingIcons, toggleFC, convertToWeekDay } from "../services";
-import "../styles/WeatherTemplate.css"
-import "../styles/Weather.css"
+import "../styles/weather-template.css"
+import "../styles/weather.css"
 
 
 
 
-const WeatherTemplate = ({data, toggle, setToggle, darkMode}: WeatherTemplateProps): JSX.Element => {
+const WeatherTemplate = ({data, toggle, setToggle, darkMode, setOpen}: WeatherTemplateProps): JSX.Element => {
 
     return (
         <div className="weather-box">
-            <div style={ darkMode ? {backgroundColor: "#0076BF", color: "black"} : {backgroundColor: "rgba(121, 209, 246, 1)", color: "white"}} className="box1">
+            <div style={ darkMode ? {backgroundColor: "#0076BF", color: "black"} : {backgroundColor: "rgba(121, 209, 246, 1)", color: "white"}} className="box2">
+              <div style={{display: 'flex', justifyContent: 'flex-end', marginRight: 20, marginTop: 15}}>
+                <FontAwesomeIcon icon={faX} size='1x' onClick={() => setOpen(false)}/>
+              </div>
               <p className="toggle">°F<Switch checked={toggle} onClick={() => setToggle(!toggle)}/>°C</p>
               <p>{convertToWeekDay(data.dt_txt, true)}</p>
               <div className="wrap-it-all">

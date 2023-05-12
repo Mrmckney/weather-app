@@ -1,0 +1,16 @@
+.forecast-container {
+    display: 'flex'
+}
+
+.forecast-display {
+    display: 'flex';
+    justify-content: space-evenly;
+}
+
+@media (max-width: 800px) {
+    .forecast-display {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}

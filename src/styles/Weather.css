@@ -49,3 +49,19 @@ body {
     margin-top: 47px;
 }
 
+@media (max-width: 800px) {
+    .wrap-it-all {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .box1 {
+        height: 1200px;
+        width: 1200px;
+        background-color: rgba(121, 209, 246, 1);
+        border-radius: 25px;
+        font-family: 'Julius Sans One';
+        color: white;
+        margin: 0;
+    }
+}
