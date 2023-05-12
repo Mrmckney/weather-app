@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { changingIcons, convertToWeekDay, toggleFC, toggleFCNumber } from '../services'
 import { ForecastSingleProps } from "../services/propTypes"
+import WeatherTemplate from './WeatherTemplate';
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -21,7 +20,7 @@ const style = {
     p: 4,
   };
 
-const SmallForecast = ({dataSingle, toggle, data, darkMode}: ForecastSingleProps): JSX.Element => {
+const SmallForecast = ({dataSingle, toggle, setToggle , data, darkMode}: ForecastSingleProps): JSX.Element => {
 
     const [difference, setDifference] = useState<{maxDif: string, minDif: string}>({maxDif: "", minDif: ""})
     const [open, setOpen] = useState(false);
@@ -64,12 +63,7 @@ const SmallForecast = ({dataSingle, toggle, data, darkMode}: ForecastSingleProps
                     aria-describedby="modal-modal-description"
                 >
                     <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Text in a 
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                       
-                    </Typography>
+                        <WeatherTemplate data={dataSingle} toggle={toggle} setToggle={setToggle} darkMode={darkMode}/>
                     </Box>
                 </Modal>
             </div>

@@ -21,6 +21,7 @@ export type ForecastProps = {
     forecastLoading: boolean
     setForecastLoading: Dispatch<SetStateAction<boolean>>
     toggle: boolean
+    setToggle: Dispatch<SetStateAction<boolean>>
     darkMode: boolean
 }
 
@@ -37,6 +38,7 @@ export type ForecastSingleProps = {
     dataSingle: ForecastDataSingle
     toggle: boolean
     darkMode: boolean
+    setToggle: Dispatch<SetStateAction<boolean>>
     data: WeatherData
 }
 
@@ -44,4 +46,11 @@ export type SearchProps = {
     setCoords: Dispatch<SetStateAction<Coords>>
     darkMode: boolean
     setDarkMode: Dispatch<SetStateAction<boolean>>
+}
+
+export type WeatherTemplateProps = {
+    data: ForecastDataSingle
+    toggle: boolean
+    setToggle: Dispatch<SetStateAction<boolean>>
+    darkMode: boolean
 }

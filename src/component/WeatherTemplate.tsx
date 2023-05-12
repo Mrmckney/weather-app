@@ -1,45 +1,19 @@
-import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Switch from '@mui/material/Switch';
-import { WeatherProps } from "../services/propTypes";
-import { changingIcons, convertToHours, toggleFC, convertToWeekDay } from "../services";
-import { fetchWeatherData } from "../services/fetch-api";
+import { WeatherTemplateProps } from "../services/propTypes";
+import { changingIcons, toggleFC, convertToWeekDay } from "../services";
 import "../styles/Weather.css"
 
 
 
-const Weather = ({data, setData, coords, weatherLoading, setWeatherLoading, toggle, setToggle, darkMode}: WeatherProps): JSX.Element => {
 
-    const [liveTime, setLiveTime] = useState<string>('')
-    
-    useEffect(() => {
-        if (coords.lat && coords.long) {
-            fetchWeatherData(coords).then((weatherData) => {
-                setData(weatherData)
-                setWeatherLoading(false)
-            });
-        }
-    }, [coords])
-    
-    useEffect(() => {
-        const interval = setInterval(() => {
-            const nowDate = new Date()
-            setLiveTime(nowDate.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit', second: '2-digit' }))
-        }, 1000);
-        return () => clearInterval(interval);
-    }, []);
+const WeatherTemplate = ({data, toggle, setToggle, darkMode}: WeatherTemplateProps): JSX.Element => {
 
     return (
         <div className="weather-container">
             <div style={ darkMode ? {backgroundColor: "#0076BF"} : {backgroundColor: "rgba(121, 209, 246, 1)"}} className="box1">
-                {weatherLoading ? 
-                    <div className="loading-box">
-                        <h1>Loading...</h1>
-                    </div>
-                : 
                 <div>
                   <p className="toggle-switch">°F<Switch checked={toggle} onClick={() => setToggle(!toggle)}/>°C</p>
-                  <p className="location">{data?.name}</p>
                   <p>{convertToWeekDay()}</p>
                   <div className="wrap-it-all">
                     <div className="column1">
@@ -73,18 +47,13 @@ const Weather = ({data, setData, coords, weatherLoading, setWeatherLoading, togg
                         <p>PRESSURE: {data?.main?.pressure}mb</p>
                         <p>HUMIDITY: {data?.main?.humidity}%</p>
                       </div>
-                      <div className="hours">
-                        <p className="live-time">live time: {liveTime}</p>
-                        <p>sunrise: {convertToHours(data?.sys?.sunrise)}</p>
-                        <p>sunset: {convertToHours(data?.sys?.sunset)}</p>
-                      </div>
                     </div>
                   </div>
                 </div>
-                }
             </div>
         </div>
     )
+
 }
 
-export default Weather;
+export default WeatherTemplate
