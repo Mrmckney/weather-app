@@ -10,6 +10,8 @@
     width: 1200px;
     background-color: rgba(121, 209, 246, 1);
     border-radius: 25px;
+    border-style: solid;
+    border: 10;
     font-family: 'Julius Sans One';
     color: white;
     margin: 49px;

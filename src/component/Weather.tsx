@@ -7,10 +7,15 @@ import { fetchWeatherData } from "../services/fetch-api";
 import "../styles/weather.css"
 
 
+const nowDate = new Date()
 
 const Weather = ({data, setData, coords, weatherLoading, setWeatherLoading, toggle, setToggle, darkMode}: WeatherProps): JSX.Element => {
 
     const [liveTime, setLiveTime] = useState<string>('')
+
+    useEffect(() => {
+      setLiveTime(nowDate.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' }))
+    }, [])
     
     useEffect(() => {
         if (coords.lat && coords.long) {
@@ -23,9 +28,8 @@ const Weather = ({data, setData, coords, weatherLoading, setWeatherLoading, togg
     
     useEffect(() => {
         const interval = setInterval(() => {
-            const nowDate = new Date()
-            setLiveTime(nowDate.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit', second: '2-digit' }))
-        }, 1000);
+            setLiveTime(nowDate.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' }))
+        }, 30000);
         return () => clearInterval(interval);
     }, []);
 
