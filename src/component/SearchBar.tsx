@@ -1,5 +1,5 @@
-import { TextField, Autocomplete } from "@mui/material"
 import { useEffect, useState } from "react"
+import { TextField, Autocomplete } from "@mui/material"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudSun, faCloudMoonRain } from '@fortawesome/free-solid-svg-icons';
 import { SearchProps } from "../services/propTypes"

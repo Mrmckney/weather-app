@@ -1,7 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { 
-  faX
-} from '@fortawesome/free-solid-svg-icons'
+import { faX } from '@fortawesome/free-solid-svg-icons'
 import Switch from '@mui/material/Switch';
 import { WeatherTemplateProps } from "../services/propTypes";
 import { changingIcons, toggleFC, convertToWeekDay } from "../services";

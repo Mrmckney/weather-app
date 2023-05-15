@@ -1,15 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudSun, faCloudMoonRain } from '@fortawesome/free-solid-svg-icons';
-import Weather from './component/Weather'
-import './App.css'
-import Forecast from './component/Forecast'
-import SearchBar from './component/SearchBar'
-// import Maps from './component/Maps'
-import { grabLocation } from './services'
+import Weather from './component/Weather';
+import Forecast from './component/Forecast';
+import SearchBar from './component/SearchBar';
+import { grabLocation } from './services';
 import { Coords, ForecastDataSingle, WeatherData } from './services/interfaces';
-// import Music from './component/Music';
+import './App.css';
 
 function App(): JSX.Element {
 

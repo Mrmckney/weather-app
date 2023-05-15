@@ -25,15 +25,6 @@ export type ForecastProps = {
     darkMode: boolean
 }
 
-
-export type MapProps = {
-    coords: Coords
-}
-
-export type MusicProps = {
-    coords: Coords
-}
-
 export type ForecastSingleProps = {
     dataSingle: ForecastDataSingle
     toggle: boolean

@@ -1,3 +1,4 @@
+import { SetStateAction, Dispatch, FormEvent } from 'react';
 import { 
     faSun, 
     faCloudBolt,
@@ -9,9 +10,7 @@ import {
     faCloudMeatball, 
     faVolcano 
 } from '@fortawesome/free-solid-svg-icons'
-import { SetStateAction } from 'react';
 import { Coords, ForecastDataSingle, WeatherData } from './interfaces'
-import { Dispatch, FormEvent } from 'react';
 import { fetchSearchData } from './fetch-api';
 
 let dayMap: any = {
