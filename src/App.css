@@ -22,3 +22,31 @@
   margin-top: 0;
   filter: drop-shadow(4px 6px 2px #9a9a9aaa)
 }
+
+.icon {
+  color: yellow;
+  font-size: 150px;
+  margin-right: 400px;
+  margin-top: 0px
+}
+
+.icon-cloud {
+  color: darkblue;
+  font-size: 150px;
+}
+
+@media (max-width: 800px) {
+  .icon {
+    font-size: 50px;
+    margin-right: 50px;
+  }
+  .icon-cloud {
+    font-size: 50px;
+  }
+  .sub-title {
+    font-size: 28px;
+  }
+  .title {
+    font-size: 50px;
+  }
+}

@@ -49,6 +49,10 @@ body {
     margin-top: 47px;
 }
 
+.column3 {
+    margin-right: 70px;
+}
+
 @media (max-width: 800px) {
     .wrap-it-all {
         display: flex;
@@ -63,5 +67,8 @@ body {
         font-family: 'Julius Sans One';
         color: white;
         margin: 0;
+    }
+    .column3 {
+        margin-right: 0px;
     }
 }

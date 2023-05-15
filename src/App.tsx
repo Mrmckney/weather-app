@@ -47,8 +47,8 @@ function App(): JSX.Element {
       { !getStarted ?
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: "100%", height: "100vh"}}>
           <div style={{display: "flex"}}>
-            <FontAwesomeIcon onClick={() => setDarkMode(false)} style={{color: "yellow", fontSize: "150px", marginRight: "400px", marginTop: "0px"}} icon={faCloudSun} />
-            <FontAwesomeIcon onClick={() => setDarkMode(true)} style={{color: "darkblue", fontSize: "150px"}} icon={faCloudMoonRain} />
+            <FontAwesomeIcon className='icon' onClick={() => setDarkMode(false)} icon={faCloudSun} />
+            <FontAwesomeIcon className='icon-cloud' onClick={() => setDarkMode(true)} icon={faCloudMoonRain} />
           </div>
           <h2 style={darkMode ? {color: "white"} : {color: "#1A2486"}} className='sub-title'>Welcome To Our</h2>
           <h1 style={darkMode ? {color: "white"} : {color: "#1A2486"}} className='title'>Weather App</h1>
