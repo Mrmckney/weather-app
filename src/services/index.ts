@@ -13,7 +13,7 @@ import {
 import { Coords, ForecastDataSingle, WeatherData } from './interfaces'
 import { fetchSearchData } from './fetch-api';
 
-let dayMap: any = {
+const dayMap: any = {
     "Mon": "Monday",
     "Tue": "Tuesday",
     "Wed": "Wednesday",
