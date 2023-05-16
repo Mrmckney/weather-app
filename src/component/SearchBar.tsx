@@ -6,7 +6,6 @@ import { SearchProps } from "../services/propTypes"
 import { handleSearch } from "../services"
 import { fetchSearchData } from "../services/fetch-api"
 
-
 const SearchBar = ({setCoords, setDarkMode}: SearchProps): JSX.Element => {
 
     const [word, setWord] = useState<string>("")

@@ -6,7 +6,6 @@ import SmallForecast from "./SmallForecast"
 import "../styles/weather.css"
 import "../styles/forecast.css"
 
-
 const Forecast = ({data, forecastData, setForecastData, coords, forecastLoading, setForecastLoading, toggle, setToggle ,darkMode}: ForecastProps): JSX.Element => {
 
     useEffect(() => {

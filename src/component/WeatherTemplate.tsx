@@ -6,9 +6,6 @@ import { changingIcons, toggleFC, convertToWeekDay } from "../services";
 import "../styles/weather-template.css"
 import "../styles/weather.css"
 
-
-
-
 const WeatherTemplate = ({data, toggle, setToggle, darkMode, setOpen}: WeatherTemplateProps): JSX.Element => {
 
     return (

@@ -6,7 +6,6 @@ import { changingIcons, convertToHours, toggleFC, convertToWeekDay } from "../se
 import { fetchWeatherData } from "../services/fetch-api";
 import "../styles/weather.css"
 
-
 const nowDate = new Date()
 
 const Weather = ({data, setData, coords, weatherLoading, setWeatherLoading, toggle, setToggle, darkMode}: WeatherProps): JSX.Element => {
