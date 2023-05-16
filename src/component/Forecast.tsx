@@ -3,7 +3,7 @@ import { ForecastDataSingle } from "../services/interfaces"
 import { ForecastProps } from "../services/propTypes"
 import { fetchForecastData } from "../services/fetch-api"
 import SmallForecast from "./SmallForecast"
-import "../styles/weather.css"
+import "../styles/Weather.css"
 import "../styles/forecast.css"
 
 const Forecast = ({data, forecastData, setForecastData, coords, forecastLoading, setForecastLoading, toggle, setToggle ,darkMode}: ForecastProps): JSX.Element => {

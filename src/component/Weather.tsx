@@ -4,7 +4,7 @@ import Switch from '@mui/material/Switch';
 import { WeatherProps } from "../services/propTypes";
 import { changingIcons, convertToHours, toggleFC, convertToWeekDay } from "../services";
 import { fetchWeatherData } from "../services/fetch-api";
-import "../styles/weather.css"
+import "../styles/Weather.css"
 
 const nowDate = new Date()
 

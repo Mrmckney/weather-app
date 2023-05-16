@@ -4,7 +4,7 @@ import Switch from '@mui/material/Switch';
 import { WeatherTemplateProps } from "../services/propTypes";
 import { changingIcons, toggleFC, convertToWeekDay } from "../services";
 import "../styles/weather-template.css"
-import "../styles/weather.css"
+import "../styles/Weather.css"
 
 const WeatherTemplate = ({data, toggle, setToggle, darkMode, setOpen}: WeatherTemplateProps): JSX.Element => {
 
