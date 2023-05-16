@@ -29,7 +29,7 @@ const Weather = ({data, setData, coords, weatherLoading, setWeatherLoading, togg
     useEffect(() => {
         const interval = setInterval(() => {
             setLiveTime(nowDate.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' }))
-        }, 30000);
+        }, 10000);
         return () => clearInterval(interval);
     }, []);
 
