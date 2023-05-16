@@ -19,6 +19,7 @@
     "@mui/material": "^5.12.3",
     "@types/jest": "^29.5.1",
     "@types/material-ui": "^0.21.12",
+    "aws-amplify": "^5.2.1",
     "aws-amplify-react": "^5.1.43",
     "dotenv": "^16.0.3",
     "prop-types": "^15.8.1",
