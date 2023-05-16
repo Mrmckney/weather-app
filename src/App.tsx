@@ -8,6 +8,7 @@ import SearchBar from './component/SearchBar';
 import { grabLocation } from './services';
 import { Coords, ForecastDataSingle, WeatherData } from './services/interfaces';
 import './App.css';
+import '@aws-amplify/ui-react/styles.css';
 
 function App(): JSX.Element {
 
