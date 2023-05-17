@@ -32,7 +32,7 @@ function App(): JSX.Element {
   }, [darkMode])
 
   function changeMode() {
-    let body = document.getElementById("body")
+    const body = document.getElementById("body")
     if(darkMode && body) {
       body.style.backgroundColor = "#055099"
       return 
@@ -57,8 +57,6 @@ function App(): JSX.Element {
         <SearchBar setCoords={setCoords} darkMode={darkMode} setDarkMode={setDarkMode}/>
         <Weather data={data} setData={setData} coords={coords} weatherLoading={weatherLoading} setWeatherLoading={setWeatherLoading} toggle={toggle} setToggle={setToggle} darkMode={darkMode} setDarkMode={setDarkMode}/>
         <Forecast data={data} forecastData={forecastData} setForecastData={setForecastData} coords={coords} forecastLoading={forecastLoading} setForecastLoading={setForecastLoading} toggle={toggle} setToggle={setToggle} darkMode={darkMode}/>
-        {/* <Music /> */}
-        {/* <Maps coords={coords}/> */}
         </>
       }
       

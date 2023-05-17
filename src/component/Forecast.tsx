@@ -16,6 +16,7 @@ const Forecast = ({data, forecastData, setForecastData, coords, forecastLoading,
             })
         }
     }, [coords])
+    
     return (
         <div className="forecast-container">
             <h1 style={darkMode ? {color: "white"} : {color: "black"}}>ForeCast</h1>
