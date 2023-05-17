@@ -57,7 +57,9 @@ export const changingIcons = (data: WeatherData | ForecastDataSingle) => {
 
 export function convertToHours(time: number) {
     const hour = new Date(time * 1000).getHours().toString()
-    const minutes = new Date(time * 1000).getMinutes().toString()
+    let minutes = new Date(time * 1000).getMinutes().toString()
+    if (minutes === "0")
+        minutes = minutes + "0"
     if (hour[0] === "0") {
         return hour[1] + ":" + minutes
     } else {

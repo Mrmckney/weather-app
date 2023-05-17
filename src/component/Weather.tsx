@@ -78,8 +78,8 @@ const Weather = ({data, setData, coords, weatherLoading, setWeatherLoading, togg
                       </div>
                       <div className="hours">
                         <p className="live-time">live time: {liveTime}</p>
-                        <p>sunrise: {convertToHours(data?.sys?.sunrise)}</p>
-                        <p>sunset: {convertToHours(data?.sys?.sunset)}</p>
+                        <p>sunrise: {convertToHours(data?.sys?.sunrise)} AM</p>
+                        <p>sunset: {convertToHours(data?.sys?.sunset)} PM</p>
                       </div>
                     </div>
                   </div>
