@@ -6,13 +6,12 @@ import { changingIcons, convertToHours, toggleFC, convertToWeekDay } from "../se
 import { fetchWeatherData } from "../services/fetch-api";
 import "../styles/Weather.css"
 
-const nowDate = new Date()
-
 const Weather = ({data, setData, coords, weatherLoading, setWeatherLoading, toggle, setToggle, darkMode}: WeatherProps): JSX.Element => {
 
     const [liveTime, setLiveTime] = useState<string>('')
 
     useEffect(() => {
+      const nowDate = new Date()
       setLiveTime(nowDate.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' }))
     }, [])
     
@@ -27,8 +26,9 @@ const Weather = ({data, setData, coords, weatherLoading, setWeatherLoading, togg
     
     useEffect(() => {
         const interval = setInterval(() => {
+            const nowDate = new Date()
             setLiveTime(nowDate.toLocaleString('en-US', { hour: 'numeric', hour12: true, minute: '2-digit' }))
-        }, 5000);
+        }, 1000);
         return () => clearInterval(interval);
     }, []);
 

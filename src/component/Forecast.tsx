@@ -10,7 +10,7 @@ const Forecast = ({data, forecastData, setForecastData, coords, forecastLoading,
 
     useEffect(() => {
         if (coords.lat && coords.long) {
-            fetchForecastData(coords).then((forecastData) => {            
+            fetchForecastData(coords).then((forecastData) => {       
                 setForecastData(forecastData)
                 setForecastLoading(false)
             })
