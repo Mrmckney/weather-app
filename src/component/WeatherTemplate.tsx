@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX } from '@fortawesome/free-solid-svg-icons'
 import Switch from '@mui/material/Switch';
 import { WeatherTemplateProps } from "../services/propTypes";
-import { changingIcons, toggleFC, convertToWeekDay } from "../services";
+import { toggleFC, convertToWeekDay, changingIconsForecast } from "../services";
 import "../styles/weather-template.css"
 import "../styles/Weather.css"
 
@@ -15,38 +15,38 @@ const WeatherTemplate = ({data, toggle, setToggle, darkMode, setOpen}: WeatherTe
                 <FontAwesomeIcon icon={faX} size='1x' onClick={() => setOpen(false)}/>
               </div>
               <p className="toggle">°F<Switch checked={toggle} onClick={() => setToggle(!toggle)}/>°C</p>
-              <p>{convertToWeekDay(data.dt_txt, true)}</p>
+              <p>{convertToWeekDay(data.maxDate, true)}</p>
               <div className="wrap-it-all">
                 <div className="column-a">
                   <div className="temp-div">
                     <p className="temp-text">current temp</p>
-                    <p className="temp">{toggleFC(data?.main?.temp, toggle)}</p>
+                    <p className="temp">{toggleFC(data?.fields?.current, toggle)}</p>
                   </div>
                   <div className="min">  
                     <p>min-temp</p>
-                    <p>{toggleFC(data?.main?.temp_min, toggle)}</p>
+                    <p>{toggleFC(data?.lowestMinTemp, toggle)}</p>
                   </div>
                 </div>
                 <div className="column-b">
-                  <FontAwesomeIcon className="sunny-icon" icon={changingIcons(data)} size="10x" />
-                  <p className="description">{data.weather ? data.weather[0].main : ""}</p>
-                  <p className="description">{data.weather ? data.weather[0].description : ""}</p>
+                  <FontAwesomeIcon className="sunny-icon" icon={changingIconsForecast(data)} size="10x" />
+                  <p className="description">{data.weather ? data.weather.main : ""}</p>
+                  <p className="description">{data.weather ? data.weather.description : ""}</p>
                 </div>
                 <div className="column-c">
                   <div className="feels-like-div">
                     <p className="feels-like-text">feels like</p>
-                    <p className="feels-like">{toggleFC(data?.main?.feels_like, toggle)}</p>
+                    <p className="feels-like">{toggleFC(data?.fields?.feels, toggle)}</p>
                   </div>
                   <div className="max">
                     <p>max-temp</p>
-                    <p>{toggleFC(data?.main?.temp_max, toggle)}</p>
+                    <p>{toggleFC(data?.biggestMaxTemp, toggle)}</p>
                   </div>
                 </div>
             </div>
             <div className='row-a'>
-              <p>WIND: {data?.wind?.speed}mph</p>
-              <p>PRESSURE: {data?.main?.pressure}mb</p>
-              <p>HUMIDITY: {data?.main?.humidity}%</p>
+              <p>WIND: {data?.fields?.wind}mph</p>
+              <p>PRESSURE: {data?.fields?.pressure}mb</p>
+              <p>HUMIDITY: {data?.fields.humidity}%</p>
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@ import {
     faCloudMeatball, 
     faVolcano 
 } from '@fortawesome/free-solid-svg-icons'
-import { Coords, ForecastDataSingle, WeatherData } from './interfaces'
+import { Coords, ForecastData, WeatherData } from './interfaces'
 import { fetchSearchData } from './fetch-api';
 
 const dayMap: any = {
@@ -38,9 +38,26 @@ export const handleSearch = (e: FormEvent, word: string, setCoords: Dispatch<Set
     }
 }
 
-export const changingIcons = (data: WeatherData | ForecastDataSingle) => {
+export const changingIcons = (data: WeatherData) => {
     if (!data.weather) return faSun
     const weatherName = data.weather[0].main
+    switch (weatherName) {
+        case "Thunderstorm": return faCloudBolt
+        case "Drizzle": return faCloudRain
+        case "Rain": return faCloudShowersHeavy
+        case "Snow": return faSnowflake
+        case "Clear": return faSun
+        case "Clouds": return faCloud
+        case "Ash": return faVolcano
+        case "Squall": return faCloudMeatball
+        case "Tornado": return faTornado
+        default: return faSmog
+    }
+}
+
+export const changingIconsForecast = (data: ForecastData) => {
+    if (!data.weather) return faSun
+    const weatherName = data.weather.main
     switch (weatherName) {
         case "Thunderstorm": return faCloudBolt
         case "Drizzle": return faCloudRain

@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { ForecastDataSingle } from "../services/interfaces"
+import { ForecastData } from "../services/interfaces"
 import { ForecastProps } from "../services/propTypes"
 import { fetchForecastData } from "../services/fetch-api"
 import SmallForecast from "./SmallForecast"
@@ -10,13 +10,13 @@ const Forecast = ({data, forecastData, setForecastData, coords, forecastLoading,
 
     useEffect(() => {
         if (coords.lat && coords.long) {
-            fetchForecastData(coords).then((forecastData) => {
-                setForecastData([forecastData.list[0], forecastData.list[8], forecastData.list[16], forecastData.list[24], forecastData.list[32]])
+            fetchForecastData(coords).then((forecastData) => {            
+                setForecastData(forecastData)
                 setForecastLoading(false)
             })
         }
     }, [coords])
-    
+
     return (
         <div className="forecast-container">
             <h1 style={darkMode ? {color: "white"} : {color: "black"}}>ForeCast</h1>
@@ -26,7 +26,7 @@ const Forecast = ({data, forecastData, setForecastData, coords, forecastLoading,
                 </div>
             :
                 <div className="forecast-display" style={{display: "flex", justifyContent: "space-evenly"}}>
-                    {forecastData?.map((dataSingle: ForecastDataSingle, i) => 
+                    {forecastData?.map((dataSingle: ForecastData, i) => 
                         <SmallForecast key={i} dataSingle={dataSingle} toggle={toggle} setToggle={setToggle} data={data} darkMode={darkMode}/>
                     )}
                 </div>

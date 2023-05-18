@@ -6,13 +6,13 @@ import Weather from './component/Weather';
 import Forecast from './component/Forecast';
 import SearchBar from './component/SearchBar';
 import { grabLocation } from './services';
-import { Coords, ForecastDataSingle, WeatherData } from './services/interfaces';
+import { Coords, ForecastData, WeatherData } from './services/interfaces';
 import './App.css';
 
 function App(): JSX.Element {
 
   const [data, setData] = useState<WeatherData>({} as WeatherData)
-  const [forecastData, setForecastData] = useState<ForecastDataSingle[]>([])
+  const [forecastData, setForecastData] = useState<ForecastData[]>([])
   const [coords, setCoords] = useState<Coords>({} as Coords)
   const [weatherLoading, setWeatherLoading] = useState<boolean>(false)
   const [forecastLoading, setForecastLoading] = useState<boolean>(false)

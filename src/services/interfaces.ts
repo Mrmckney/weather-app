@@ -47,23 +47,11 @@ export interface WeatherData {
 }
 
 export interface ForecastData {
-    cod: string;
-    message: number;
-    cnt: number;
-    list: ForecastDataSingle[],
-    city: {
-      id: number;
-      name: string;
-      coord: {
-        lat: number;
-        lon: number;
-      },
-      country: string;
-      population: number;
-      timezone: number;
-      sunrise: number;
-      sunset: number;
-    }
+    maxDate: string
+    biggestMaxTemp: number
+    fields: {feels: number, current: number, wind: number, pressure: number, humidity: number}
+    lowestMinTemp: number
+    weather: {main: string, description: string}
   }
 
   export interface ForecastDataSingle {
