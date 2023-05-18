@@ -13,7 +13,7 @@ export const fetchWeatherData = async (coords: Coords) => {
 }
 
 export const fetchForecastData = async (coords: Coords) => {
-    const response: Response = await fetch(`http://localhost:5001/api/forecast`, {
+    const response: Response = await fetch(`https://weather-app-api-orcin.vercel.app/api/forecast`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
