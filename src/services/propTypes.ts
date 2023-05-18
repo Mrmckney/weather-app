@@ -1,5 +1,5 @@
 import { SetStateAction, Dispatch } from "react"
-import { Coords, ForecastDataSingle, WeatherData, ForecastData } from "./interfaces"
+import { Coords, WeatherData, ForecastData } from "./interfaces"
 
 export type WeatherProps = {
     data: WeatherData
