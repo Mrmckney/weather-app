@@ -7,10 +7,24 @@
     justify-content: space-evenly;
 }
 
-@media (max-width: 800px) {
+.min-max-font {
+    font-size: 0.75em;
+}
+
+@media (max-width: 1300px) {
+    .min-max-font {
+        font-size: 0.6em;
+    }
+}
+
+@media (max-width: 1000px) {
     .forecast-display {
         display: flex;
         justify-content: center;
         flex-direction: column;
     }
+    .min-max-font {
+        font-size: 1em;
+    }
 }
+

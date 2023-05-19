@@ -60,10 +60,10 @@ const SmallForecast = ({dataSingle, toggle, setToggle , data, darkMode}: Forecas
                 <h1>{convertToWeekDay(dataSingle.maxDate)}</h1>
                 <FontAwesomeIcon icon={changingIconsForecast(dataSingle)} size="7x" />
                 <p>{dataSingle.weather.main}</p>
-                <span style={{marginRight: 5}}>MIN: {toggleFC(dataSingle?.lowestMinTemp, toggle)}</span>
-                <span style={difference.minDif[0] === "ꜛ" ? {color: darkMode ? "#29E5FF" : "green", marginRight: 10} : {color: darkMode ? "#FFF019" : "red", marginRight: 10}}>{difference.minDif}</span>
-                <span style={{marginRight: 5}}>MAX: {toggleFC(dataSingle?.biggestMaxTemp, toggle)}</span>
-                <span style={difference.maxDif[0] === "ꜛ"  ? {color: darkMode ? "#29E5FF" : "green", marginRight: 10} : {color: darkMode ? "#FFF019" : "red", marginRight: 10}}>{difference.maxDif}</span>
+                <span className="min-max-font" style={{marginRight: 5}}>MIN: {toggleFC(dataSingle?.lowestMinTemp, toggle)}</span>
+                <span className="min-max-font" style={difference.minDif[0] === "ꜛ" ? {color: darkMode ? "#29E5FF" : "green", marginRight: 10} : {color: darkMode ? "#FFF019" : "red", marginRight: 10}}>{difference.minDif}</span>
+                <span className="min-max-font" style={{marginRight: 5}}>MAX: {toggleFC(dataSingle?.biggestMaxTemp, toggle)}</span>
+                <span className="min-max-font" style={difference.maxDif[0] === "ꜛ"  ? {color: darkMode ? "#29E5FF" : "green", marginRight: 10} : {color: darkMode ? "#FFF019" : "red", marginRight: 10}}>{difference.maxDif}</span>
             </div>
         </div>
     )
